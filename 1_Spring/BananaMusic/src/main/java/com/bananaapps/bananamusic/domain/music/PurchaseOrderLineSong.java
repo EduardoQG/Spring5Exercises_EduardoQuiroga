@@ -22,4 +22,6 @@ public class PurchaseOrderLineSong {
     private Double unitPrice;
 
 
+    public void setOrder(PurchaseOrder purchase) {
+    }
 }
