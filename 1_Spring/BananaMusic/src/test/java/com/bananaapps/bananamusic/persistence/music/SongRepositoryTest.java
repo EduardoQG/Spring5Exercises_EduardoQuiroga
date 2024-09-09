@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 
 
 class SongRepositoryTest {
-  /*  @Autowired
+    @Autowired
     SongRepository repo;
 
     @Test
@@ -25,7 +25,7 @@ class SongRepositoryTest {
         assertThat(song, notNullValue());
         assertThat(song.getId(), equalTo(id));
     }
-
+/*
     @Test
     void given_invalidId_When_findOne_Then_null() {
         Long id = 100L;

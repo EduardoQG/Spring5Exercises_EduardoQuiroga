@@ -13,6 +13,7 @@ import java.util.List;
 @AllArgsConstructor
 @ToString
 @Entity
+@Table(name = "purchase_order")
 public class PurchaseOrder {
 
     @Id
@@ -20,6 +21,7 @@ public class PurchaseOrder {
     private Long id;
     private int status;
     private boolean valid;
+    @Column(name = "order_date")
     private LocalDate orderDate;
     @ManyToOne
     @JoinColumn(name = "user_id")

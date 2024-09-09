@@ -2,6 +2,7 @@ package com.bananaapps.bananamusic.persistence.music;
 
 import com.bananaapps.bananamusic.domain.music.Song;
 import com.bananaapps.bananamusic.domain.music.SongCategory;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Collection;
 

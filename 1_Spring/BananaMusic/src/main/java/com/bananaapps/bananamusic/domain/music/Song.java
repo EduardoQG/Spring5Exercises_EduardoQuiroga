@@ -18,14 +18,22 @@ import java.util.Objects;
 @AllArgsConstructor
 @ToString
 @Entity
+@Table(name = "tune")
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Song {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String title, artist;
+
+    private String title;
+    private String artist;
+    @Column(name = "release_date")
     private LocalDate releaseDate;
+    @Column(name= "cost")
     private BigDecimal price;
+    @Column(name = "song_category")
+    @Enumerated(EnumType.STRING)
     private SongCategory songCategory;
     private int version;
     @OneToMany(mappedBy = "item")

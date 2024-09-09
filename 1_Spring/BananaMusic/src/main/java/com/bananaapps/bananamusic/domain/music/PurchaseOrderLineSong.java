@@ -10,10 +10,12 @@ import javax.persistence.*;
 //@AllArgsConstructor
 @ToString
 @Entity
+@Table(name = "purchase_order_line_song")
 public class PurchaseOrderLineSong {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "order_id")
     private Long lineNumber;
     @ManyToOne
     @JoinColumn(name = "song_id")
@@ -27,6 +29,7 @@ public class PurchaseOrderLineSong {
         this.unitPrice = unitPrice;
     }
 
+    @Column(name = "unit_price")
     private Double unitPrice;
 
 
