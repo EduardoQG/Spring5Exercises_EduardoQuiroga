@@ -2,7 +2,6 @@ package com.bananaapps.bananamusic.persistence.music;
 
 import com.bananaapps.bananamusic.domain.music.Song;
 import com.bananaapps.bananamusic.domain.music.SongCategory;
-import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Collection;
 
@@ -16,7 +15,7 @@ public interface SongRepository {
         return findByArtistContainingOrTitleContainingAllIgnoreCase(keyword, keyword);
     }
 
-    public Collection<Song> findByArtistContainingOrTitleContainingAllIgnoreCase(String artist, String title);
+    public Collection<Song> findByArtistContainingOrTitleContainingAllIgnoreCase(String artist, String keyword);
 
     public Collection<Song> findBySongCategory(SongCategory category);
 

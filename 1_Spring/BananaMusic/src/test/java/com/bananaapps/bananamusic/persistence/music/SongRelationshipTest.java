@@ -1,18 +1,26 @@
 package com.bananaapps.bananamusic.persistence.music;
 
+import com.bananaapps.bananamusic.config.SpringConfig;
 import com.bananaapps.bananamusic.domain.music.Backlog;
 import com.bananaapps.bananamusic.domain.music.Song;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.TransactionStatus;
 import org.springframework.transaction.support.DefaultTransactionDefinition;
 
+import javax.transaction.Transactional;
 import java.util.Collection;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-
+@ExtendWith(SpringExtension.class)
+@ContextConfiguration(classes = {SpringConfig.class})
+@EnableAutoConfiguration
 public class SongRelationshipTest {
 
     @Autowired
@@ -21,7 +29,7 @@ public class SongRelationshipTest {
     @Autowired
     private PlatformTransactionManager transactionManager;
 
-    // @Test
+    @Test
     public void testBacklogAccessPositive() {
         DefaultTransactionDefinition definition = new DefaultTransactionDefinition();
         TransactionStatus transaction = transactionManager.getTransaction(definition);
@@ -42,6 +50,7 @@ public class SongRelationshipTest {
     }
 
     @Test
+    @Transactional
     public void testBacklogAddPositive() {
         DefaultTransactionDefinition definition = new DefaultTransactionDefinition();
         TransactionStatus transaction = transactionManager.getTransaction(definition);

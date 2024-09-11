@@ -11,6 +11,5 @@ public class SongConfig {
     @Bean
     public SongRepository songRepository() {
         return new SongRepositoryImpl();
-
     }
 }

@@ -36,7 +36,8 @@ public class Song {
     @Enumerated(EnumType.STRING)
     private SongCategory songCategory;
     private int version;
-    @OneToMany(mappedBy = "item")
+    @OneToMany(mappedBy = "item", cascade = CascadeType.ALL, orphanRemoval = true)
+    @ToString.Exclude
     private Collection<Backlog> backlogRecords = new ArrayList<Backlog>();
 
     public void addBacklogRecord(String location, int quantity) {

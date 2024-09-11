@@ -22,6 +22,7 @@ public class Backlog {
 
     @ManyToOne
     @JoinColumn(name = "tune_id")
+    @ToString.Exclude
     private Song item;
 
     public Backlog(String location, int quantity) {

@@ -3,23 +3,38 @@ package com.bananaapps.bananamusic.persistence.music;
 
 import com.bananaapps.bananamusic.domain.music.Song;
 import com.bananaapps.bananamusic.domain.music.SongCategory;
+import org.springframework.transaction.annotation.Transactional;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import java.util.Collection;
 
 public class SongRepositoryImpl implements SongRepository {
+
+    @PersistenceContext
+    EntityManager em;
+
     @Override
     public Song findOne(Long id) {
-        return null;
+        return em.find(Song.class, id);
     }
 
     @Override
     public Collection<Song> findAll() {
-        return null;
+
+        return em.createQuery("SELECT s FROM Song s", Song.class).getResultList();
     }
 
     @Override
     public Collection<Song> findByArtistContainingOrTitleContainingAllIgnoreCase(String artist, String title) {
-        return null;
+
+        String keywordFormat = "%" + artist + "%";
+
+        Query query = em.createQuery("SELECT s FROM Song s WHERE LOWER(s.artist) LIKE LOWER(:keyword) OR LOWER(s.title) LIKE LOWER(:keyword)");
+        query.setParameter("keyword", keywordFormat);
+
+        return query.getResultList();
     }
 
     @Override
@@ -33,8 +48,10 @@ public class SongRepositoryImpl implements SongRepository {
     }
 
     @Override
+    @Transactional
     public Song save(Song song) {
-        return null;
+        em.persist(song);
+        return song;
     }
 
     @Override
