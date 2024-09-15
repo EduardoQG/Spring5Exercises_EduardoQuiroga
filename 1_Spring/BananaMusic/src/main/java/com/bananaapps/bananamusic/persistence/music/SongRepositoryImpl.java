@@ -44,7 +44,8 @@ public class SongRepositoryImpl implements SongRepository {
 
     @Override
     public long count() {
-        return 0;
+
+        return findAll().size();
     }
 
     @Override

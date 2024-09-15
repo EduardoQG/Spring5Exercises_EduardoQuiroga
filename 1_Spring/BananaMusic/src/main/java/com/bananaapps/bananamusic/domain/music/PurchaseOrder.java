@@ -27,7 +27,7 @@ public class PurchaseOrder {
     @JoinColumn(name = "user_id")
     private User user;
 
-    @OneToMany(mappedBy = "song")
+    @OneToMany(mappedBy = "song", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<PurchaseOrderLineSong> lineSongs;
 
 

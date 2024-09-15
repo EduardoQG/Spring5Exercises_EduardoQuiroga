@@ -17,7 +17,7 @@ public class PurchaseOrderLineSong {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "order_id")
     private Long lineNumber;
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "song_id")
     private Song song;
     private Integer quantity;

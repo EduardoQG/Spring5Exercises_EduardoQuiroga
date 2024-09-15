@@ -34,6 +34,7 @@ public class CatalogImpl implements Catalog {
     @Override
     @Transactional(propagation = Propagation.NEVER)
     public long size() {
+
         return songRepository.count();
     }
 

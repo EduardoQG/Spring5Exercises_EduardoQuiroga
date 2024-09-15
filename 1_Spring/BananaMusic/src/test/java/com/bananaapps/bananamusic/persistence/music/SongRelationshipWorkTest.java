@@ -32,7 +32,7 @@ public class SongRelationshipWorkTest {
 
 
 	// ****  Test to be run without cascading set
-	@Transactional
+	// @Transactional
 	@Test
 	public void testInventoryAddNoCascadeNegative() {
 		DefaultTransactionDefinition definition = new DefaultTransactionDefinition();

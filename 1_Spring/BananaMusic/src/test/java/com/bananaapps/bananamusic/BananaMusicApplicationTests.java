@@ -1,6 +1,8 @@
 package com.bananaapps.bananamusic;
 
 import com.bananaapps.bananamusic.config.SpringConfig;
+import com.bananaapps.bananamusic.domain.user.User;
+import com.bananaapps.bananamusic.persistence.UserRepository;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,12 +25,19 @@ class BananaMusicApplicationTests {
 	EntityManager em;
 
 	@Autowired
+	UserRepository urepo;
+
+	@Autowired
 	EntityManagerFactory emf;
 	@Test
 	void contextLoads() {
 
 		assertNotNull(emf);
 		assertNotNull(em);
+
+		// assertNotNull(u);
+		assertNotNull(urepo);
+
 		assertTrue(true);
 	}
 

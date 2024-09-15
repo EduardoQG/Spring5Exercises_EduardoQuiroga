@@ -6,16 +6,15 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.7.1</version>
+        <version>2.7.4</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
     <groupId>com.bananaapps</groupId>
-    <artifactId>BananaMusic1</artifactId>
+    <artifactId>BananaMusic1Sol</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>BananaMusic</name>
+    <name>BananaMusic1Sol</name>
     <description>BananaMusic project for Spring Boot</description>
-
     <properties>
         <java.version>11</java.version>
     </properties>
@@ -25,6 +24,7 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
@@ -38,8 +38,7 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.18.30</version>
-            <scope>provided</scope>
+            <optional>true</optional>
         </dependency>
 
         <dependency>
@@ -47,7 +46,6 @@
             <artifactId>mysql-connector-java</artifactId>
             <version>8.0.33</version>
         </dependency>
-
 
     </dependencies>
 
